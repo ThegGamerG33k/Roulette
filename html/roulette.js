@@ -10,11 +10,11 @@ function forp(val)
 {
     if (val >18 || val == "00")
     {
-        attribute.append("pass");
+        return "passe";
     }
     else
     {
-        attribute.append("manque");
+        return "manque";
     }
 
 }
@@ -23,11 +23,11 @@ function col(val)
 {
     if (val % 2 == 0)
     {
-        attribute.append("noir, ");
+        return "rouge, ";
     }
     else
     {
-        return "rouge, ";
+        return "noir, ";
     }
 }
 
@@ -35,11 +35,11 @@ function even(val)
 {
     if (val % 2 == 0)
     {
-        attribute.append("pair, ");
+        return "pair, ";
     }
     else
     {
-        attribute.append("impair, ");
+        return "impair, ";
     }
 }
 
@@ -51,15 +51,17 @@ function spin()
 
     if (rand == "00")
     {
-        return "double zéro, noir, pair, passe"
+        return "double zéro, noir, pair, passe";
     }
     else if (rand == 0)
     {
-        return "zéro, rouge, impair, and manque"
+        return "zéro, rouge, impair, and manque";
     }
     else 
     {
-        spin = number[randspin] + col(randspin) + even(rand) + forp(rand);
-        return spin;
+        spin = number[randspin] + ", " + col(randspin) + even(rand) + forp(rand);
+        console.log(spin);
     }
 }
+
+spin();
