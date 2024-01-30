@@ -60,6 +60,8 @@ function spin()
     else 
     {
         spin = number[randspin] + ", " + col(randspin) + even(rand) + forp(rand);
+        elem = document.createElement("roulette");
+        document.createTextNode(”…”);
         console.log(spin);
     }
 }
