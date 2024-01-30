@@ -2,13 +2,44 @@
 
 
 roulette = [0, 34, 10, 21, 28, 4, 18, 9, 27, 22, 12, 3, 17, 20, 11, 33, 2, 10, 32, "00", 15, 8, 25, 1, 31, 20, 14, 30, 7, 24, 29, 35, 6, 13, 23, 19, 5, 36];
-
+number = ["zéro", "Trente-quatre", "dix", "vingt et un", "vingt-huit", "quatre", "dix-huit", "neuf", "vingt-sept", "vingt-deux", "douze", "trois", "dix-sept", 
+"vingt", "onze", "Trente-trois", "deux", "dix", "Trente-deux", "double zéro", "quinze", "huit", "vingt-cinq", "un", "Trente et un", "vingt", "quatorze", "trente", 
+"sept", "vingt-quatre", "vingt-neuf", "Trente-cinq", "six", "treize", "vingt-trois", "dix-neuf", "cinq", "Trente-six"];
 
 function forp(val)
 {
-    if (val <=18)
+    if (val >18 || val == "00")
     {
-        
+        attribute.append("pass");
+    }
+    else
+    {
+        attribute.append("manque");
+    }
+
+}
+
+function col(val)
+{
+    if (val % 2 == 0)
+    {
+        attribute.append("noir, ");
+    }
+    else
+    {
+        return "rouge, ";
+    }
+}
+
+function even(val)
+{
+    if (val % 2 == 0)
+    {
+        attribute.append("pair, ");
+    }
+    else
+    {
+        attribute.append("impair, ");
     }
 }
 
@@ -28,9 +59,7 @@ function spin()
     }
     else 
     {
-        
+        spin = number[randspin] + col(randspin) + even(rand) + forp(rand);
+        return spin;
     }
-
-
-    return roulette[0];
 }
