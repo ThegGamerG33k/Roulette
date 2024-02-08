@@ -43,14 +43,20 @@ function even(val)
     }
 }
 
+
 function spin() 
 {
     let randspin = Math.floor(Math.random() * 38);
 
     let rand = roulette[randspin];
 
-    let spinValue = [number[randspin], col(randspin), even(rand), forp(rand)];
-    let spin = number[randspin] + col(randspin) + even(rand) + forp(rand);
+    let spinValue = [number[randspin], col(randspin), even(rand), forp(rand)]; 
+    let s = JSON.stringify(spinValue);
+    sock.send(s);
+}
+
+function childAdd(spinValue)
+{
     let elem = document.createElement("tr");
     elem.className = "row";
 
@@ -64,4 +70,5 @@ function spin()
 
     let table = document.getElementById("roulette");
     table.appendChild(elem);
+    spinValue = [];
 }

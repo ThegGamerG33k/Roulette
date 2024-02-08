@@ -1,6 +1,7 @@
 import asyncio
 import os, os.path
 import tornado.web
+import Sock
 import roulette
 import os
 
@@ -12,7 +13,8 @@ HTMLDIR = os.path.abspath(
 
 def makeApp():
     endpoints=[
-        ("/roulette/.*",roulette.ProfileHandler)
+        ("/roulette/.*",roulette.ProfileHandler),
+        ("/sock", Sock.Handler)
     ]
     app = tornado.web.Application(endpoints,
         static_path=HTMLDIR
